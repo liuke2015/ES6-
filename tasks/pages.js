@@ -8,6 +8,6 @@ import args from './util/args';
 
 gulp.task('pages',()=>{
     return gulp.src('app/**/*.ejs')
-        .pipe(gulp.desc('server'))
+        .pipe(gulp.dest('server'))
         .pipe(gulpif(args.watch,livereload()))
 })
