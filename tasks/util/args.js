@@ -30,7 +30,7 @@ const args=yargs
 	describe:'server port'
 })
 
-/*.argv*/
+.argv
 
 export default args;
 
