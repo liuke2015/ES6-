@@ -20,9 +20,9 @@
     <favorites_list name="ES6" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7393907">
+    <splitter split-orientation="horizontal" split-proportion="0.74958634">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.3045085">
+        <splitter split-orientation="horizontal" split-proportion="0.2085308">
           <split-first>
             <leaf>
               <file leaf-file-name="cripts.js" pinned="false" current-in-tab="false">
@@ -80,7 +80,7 @@
               <file leaf-file-name="default.js" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/tasks/default.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.059164733">
+                    <state vertical-scroll-proportion="0.07888631">
                       <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
                       <folding />
                     </state>
@@ -121,28 +121,6 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="lesson11.js" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/app/js/class/lesson11.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="0.94083524">
-                      <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
-                      <folding>
-                        <element signature="n#!!doc" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="lesson10.js" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/app/js/class/lesson10.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state vertical-scroll-proportion="-13.571428">
-                      <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
               <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/app/js/index.js">
                   <provider selected="true" editor-type-id="text-editor">
@@ -151,6 +129,16 @@
                       <folding>
                         <element signature="n#!!doc" expanded="true" />
                       </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="lesson12.js" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/app/js/class/lesson12.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state vertical-scroll-proportion="0.96055686">
+                      <caret line="119" column="19" selection-start-line="119" selection-start-column="19" selection-end-line="119" selection-end-column="19" />
+                      <folding />
                     </state>
                   </provider>
                 </entry>
@@ -164,7 +152,7 @@
           <file leaf-file-name="gulpfile.babel.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/gulpfile.babel.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
+                <state vertical-scroll-proportion="-0.0">
                   <caret line="0" column="35" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="35" />
                   <folding />
                 </state>
@@ -181,11 +169,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+          <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7051569">
-                  <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
+                <state vertical-scroll-proportion="-20.26923">
+                  <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="lesson11.js" pinned="false" current-in-tab="true">
+            <entry file="file://D:/刘珂/ES6/新建文件夹/project/g11ctu/app/js/class/lesson11.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.5324826">
+                  <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
@@ -253,8 +251,9 @@
         <option value="$PROJECT_DIR$/app/js/class/lesson8.js" />
         <option value="$PROJECT_DIR$/app/js/class/lesson9.js" />
         <option value="$PROJECT_DIR$/app/js/class/lesson10.js" />
-        <option value="$PROJECT_DIR$/app/js/index.js" />
         <option value="$PROJECT_DIR$/app/js/class/lesson11.js" />
+        <option value="$PROJECT_DIR$/app/js/index.js" />
+        <option value="$PROJECT_DIR$/app/js/class/lesson12.js" />
       </list>
     </option>
   </component>
@@ -477,7 +476,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14322917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.055729166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -665,16 +664,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tasks/default.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.059164733">
+        <state vertical-scroll-proportion="0.07888631">
           <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.babel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="35" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -691,14 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/public/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5">
-          <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -772,6 +755,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5661253">
           <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -779,6 +763,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.88167053">
           <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -800,6 +785,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7099768">
           <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -859,6 +845,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.26923">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/class/lesson11.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0591648">
+          <caret line="93" column="31" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.8846154">
@@ -867,18 +871,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/刘珂/ES6/新建文件夹/project/g11ctu/app/js/class/lesson11.js">
+    <entry file="file://$PROJECT_DIR$/gulpfile.babel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57192576">
-          <caret line="29" column="31" selection-start-line="0" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="35" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://D:/刘珂/ES6/新建文件夹/project/g11ctu/app/js/class/lesson11.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7051569">
-          <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.5324826">
+          <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -893,21 +897,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/class/lesson10.js">
+    <entry file="file://$PROJECT_DIR$/app/js/class/lesson12.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.571428">
-          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.96055686">
+          <caret line="119" column="19" selection-start-line="119" selection-start-column="19" selection-end-line="119" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/class/lesson11.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94083524">
-          <caret line="93" column="34" selection-start-line="93" selection-start-column="34" selection-end-line="93" selection-end-column="34" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
