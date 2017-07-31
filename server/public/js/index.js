@@ -8703,101 +8703,188 @@
 
 	'use strict';
 
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 	/**
-	 * Created by Administrator on 2017/7/28 0028.
+	 * Created by Administrator on 2017/7/31 0031.
 	 */
-	/*函数扩展*/
+	/*一、set*/
 	{
-	    var test = function test(x) {
-	        var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'world';
-
-	        console.log('默认值', x, y);
-	    };
-
-	    test('hello'); //hello world
-	    test('hello', 'kill'); //hello kill
+	    /*1、定义--不加参数*/
+	    var list = new Set();
+	    list.add(5);
+	    list.add(7);
+	    console.log('list', list);
+	    console.log('size', list.size);
 	}
 
 	{
-	    var test2 = function test2(x) {
-	        var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : x;
+	    /*2、定义--加参数*/
+	    var arr = [1, 2, 3, 4, 5];
+	    var _list = new Set(arr);
 
-	        console.log('作用域', x, y); //kill kill
-	    };
-
-	    var x = 'test';
-
-	    test2('kill');
+	    console.log('size', _list.size);
 	}
-	/*...arg---把传入参数转为数组
-	* ...arg之后，不能再有其它参数
-	* */
+
 	{
-	    var test3 = function test3() {
-	        for (var _len = arguments.length, arg = Array(_len), _key = 0; _key < _len; _key++) {
-	            arg[_key] = arguments[_key];
+	    /*3、特性--元素不能重复*/
+	    var _list2 = new Set();
+	    _list2.add(1);
+	    _list2.add(2);
+	    _list2.add(1);
+
+	    console.log('list', _list2);
+
+	    var _arr = [1, 2, 3, 1, '2'];
+	    var list2 = new Set(_arr);
+
+	    console.log('unique', list2);
+	}
+
+	{
+	    /*4、方法--'add','delete','clear','has'*/
+	    var _arr2 = ['add', 'delete', 'clear', 'has'];
+	    var _list3 = new Set(_arr2);
+
+	    console.log('has', _list3.has('add'));
+	    console.log('delete', _list3.delete('add'), _list3);
+	    _list3.clear();
+	    console.log('list', _list3);
+	}
+
+	{
+	    /*5、遍历*/
+	    var _arr3 = ['add', 'delete', 'clear', 'has'];
+	    var _list4 = new Set(_arr3);
+
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+
+	    try {
+	        for (var _iterator = _list4.keys()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	            var key = _step.value;
+
+	            console.log('keys', key);
 	        }
-
-	        var _iteratorNormalCompletion = true;
-	        var _didIteratorError = false;
-	        var _iteratorError = undefined;
-
+	    } catch (err) {
+	        _didIteratorError = true;
+	        _iteratorError = err;
+	    } finally {
 	        try {
-	            for (var _iterator = arg[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                var v = _step.value;
-
-	                console.log('rest', v);
+	            if (!_iteratorNormalCompletion && _iterator.return) {
+	                _iterator.return();
 	            }
-	        } catch (err) {
-	            _didIteratorError = true;
-	            _iteratorError = err;
 	        } finally {
-	            try {
-	                if (!_iteratorNormalCompletion && _iterator.return) {
-	                    _iterator.return();
-	                }
-	            } finally {
-	                if (_didIteratorError) {
-	                    throw _iteratorError;
-	                }
+	            if (_didIteratorError) {
+	                throw _iteratorError;
 	            }
 	        }
-	    };
+	    }
 
-	    test3(1, 2, 3, 4, 'a');
+	    var _iteratorNormalCompletion2 = true;
+	    var _didIteratorError2 = false;
+	    var _iteratorError2 = undefined;
+
+	    try {
+	        for (var _iterator2 = _list4.values()[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	            var value = _step2.value;
+
+	            console.log('value', value);
+	        }
+	    } catch (err) {
+	        _didIteratorError2 = true;
+	        _iteratorError2 = err;
+	    } finally {
+	        try {
+	            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                _iterator2.return();
+	            }
+	        } finally {
+	            if (_didIteratorError2) {
+	                throw _iteratorError2;
+	            }
+	        }
+	    }
+
+	    var _iteratorNormalCompletion3 = true;
+	    var _didIteratorError3 = false;
+	    var _iteratorError3 = undefined;
+
+	    try {
+	        for (var _iterator3 = _list4.entries()[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	            var _step3$value = _slicedToArray(_step3.value, 2),
+	                _key = _step3$value[0],
+	                _value = _step3$value[1];
+
+	            console.log('entries', _key, _value);
+	        }
+	    } catch (err) {
+	        _didIteratorError3 = true;
+	        _iteratorError3 = err;
+	    } finally {
+	        try {
+	            if (!_iteratorNormalCompletion3 && _iterator3.return) {
+	                _iterator3.return();
+	            }
+	        } finally {
+	            if (_didIteratorError3) {
+	                throw _iteratorError3;
+	            }
+	        }
+	    }
+
+	    _list4.forEach(function (item) {
+	        console.log(item);
+	    });
+	}
+
+	/*二、WeakSet*/
+	/*WeakSet与Set的区别-- 支持类型不一样
+	*   WeakSet的key值只支持对象，且对象是弱引用--地址引用。
+	*   没有clear方法，没有size属性,不能遍历
+	* */
+
+	{
+	    var weakList = new WeakSet();
+
+	    var arg = {};
+
+	    weakList.add(arg);
+
+	    // weakList.add(2);
+
+	    console.log('weakList', weakList);
+	}
+	/*三、map*/
+	/*map的key可以是任何类型，甚至是数组类型*/
+	{
+	    var map = new Map();
+	    var _arr4 = ['123'];
+
+	    map.set(_arr4, 456);
+
+	    console.log('map', map, map.get(_arr4));
 	}
 
 	{
-	    var _console, _console2;
-
-	    (_console = console).log.apply(_console, [1, 2, 4]); //1 2 4
-	    (_console2 = console).log.apply(_console2, ['a'].concat([1, 2, 4])); //a 1 2 4
+	    var _map = new Map([['a', 123], ['b', 456]]);
+	    console.log('map args', _map);
+	    console.log('size', _map.size);
+	    console.log('delete', _map.delete('a'), _map);
+	    console.log('clear', _map.clear(), _map);
 	}
-	/*箭头函数*/
-	{
-	    var arrow = function arrow(v) {
-	        return v * 2;
-	    };
-	    var arrow2 = function arrow2() {
-	        return 5;
-	    };
-	    console.log('arrow', arrow(3)); //6
-	    console.log(arrow2()); //5
-	}
-	/*尾调用 函数最后是函数
-	*     在函数中需要调用另一个函数时，或者函数之中嵌套函数，用尾调用（提高性能）
+	/*四、WeakMap*/
+	/*   WeakMap的key值只支持对象，且对象是弱引用--地址引用。
+	 *   没有clear方法，没有size属性,不能遍历
 	*
 	* */
 	{
-	    var tail = function tail(x) {
-	        console.log('tail', x);
-	    };
+	    var weakmap = new WeakMap();
 
-	    var fx = function fx(x) {
-	        return tail(x);
-	    };
-
-	    fx(123); //tail 123
+	    var o = {};
+	    weakmap.set(o, 123);
+	    console.log(weakmap.get(o));
 	}
 
 /***/ })

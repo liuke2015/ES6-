@@ -2,4 +2,4 @@
 /*
 import './class/lesson2';*/
 import "babel-polyfill";
-import './class/lesson7'
+import './class/lesson10'
