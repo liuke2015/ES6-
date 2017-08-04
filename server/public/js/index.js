@@ -8703,165 +8703,136 @@
 
 	'use strict';
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 	/**
-	 * Created by Administrator on 2017/7/31 0031.
+	 * Created by dell on 2017/8/4.
 	 */
-	/*类*/
+	/*promise*/
 	{
-	    // 基本定义和生成实例
-	    var Parent = function Parent() {
-	        var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'mukewang';
+	    // 基本定义
+	    var ajax = function ajax(callback) {
+	        console.log('执行');
+	        setTimeout(function () {
+	            callback && callback.call();
+	        }, 1000);
+	    };
+	    ajax(function () {
+	        console.log('timeout1');
+	    });
+	}
 
-	        _classCallCheck(this, Parent);
-
-	        this.name = name;
+	{
+	    var _ajax = function _ajax() {
+	        console.log('执行2');
+	        return new Promise(function (resolve, reject) {
+	            setTimeout(function () {
+	                resolve();
+	            }, 1000);
+	        });
 	    };
 
-	    var v_parent = new Parent('v');
-	    console.log('构造函数和实例', v_parent);
+	    _ajax().then(function () {
+	        console.log('promise', 'timeout2');
+	    });
 	}
 
 	{
-	    // 继承
-	    var _Parent = function _Parent() {
-	        var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'mukewang';
-
-	        _classCallCheck(this, _Parent);
-
-	        this.name = name;
+	    var _ajax2 = function _ajax2() {
+	        console.log('执行3');
+	        return new Promise(function (resolve, reject) {
+	            setTimeout(function () {
+	                resolve();
+	            }, 1000);
+	        });
 	    };
 
-	    var Child = function (_Parent2) {
-	        _inherits(Child, _Parent2);
-
-	        function Child() {
-	            _classCallCheck(this, Child);
-
-	            return _possibleConstructorReturn(this, (Child.__proto__ || Object.getPrototypeOf(Child)).apply(this, arguments));
-	        }
-
-	        return Child;
-	    }(_Parent);
-
-	    console.log('继承', new Child());
+	    _ajax2().then(function () {
+	        return new Promise(function (resolve, reject) {
+	            setTimeout(function () {
+	                resolve();
+	            }, 2000);
+	        });
+	    }).then(function () {
+	        console.log('timeout3');
+	    });
 	}
 
 	{
-	    // 继承传递参数
-	    var _Parent3 = function _Parent3() {
-	        var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'mukewang';
-
-	        _classCallCheck(this, _Parent3);
-
-	        this.name = name;
+	    var _ajax3 = function _ajax3(num) {
+	        console.log('执行4');
+	        return new Promise(function (resolve, reject) {
+	            if (num > 5) {
+	                resolve();
+	            } else {
+	                throw new Error('出错了');
+	            }
+	        });
 	    };
 
-	    var _Child = function (_Parent4) {
-	        _inherits(_Child, _Parent4);
+	    _ajax3(6).then(function () {
+	        console.log('log', 6);
+	    }).catch(function (err) {
+	        console.log('catch', err);
+	    });
 
-	        function _Child() {
-	            var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'child';
+	    _ajax3(3).then(function () {
+	        console.log('log', 3);
+	    }).catch(function (err) {
+	        console.log('catch', err);
+	    });
 
-	            _classCallCheck(this, _Child);
+	    {
+	        //所有图片加载完再添加到页面
+	        var loadImg = function loadImg(src) {
+	            return new Promise(function (resolve, reject) {
+	                var img = document.createElement('img');
+	                img.src = src;
+	                img.onload = function () {
+	                    resolve(img);
+	                };
+	                img.onerror = function (err) {
+	                    reject(err);
+	                };
+	            });
+	        };
 
-	            var _this2 = _possibleConstructorReturn(this, (_Child.__proto__ || Object.getPrototypeOf(_Child)).call(this, name));
+	        var showImgs = function showImgs(imgs) {
+	            imgs.forEach(function (img) {
+	                document.body.appendChild(img);
+	            });
+	        };
+	        /*Promise.all---promise集合全部执行完毕，才进行下一步*/
 
-	            _this2.type = 'child';
-	            return _this2;
-	        }
 
-	        return _Child;
-	    }(_Parent3);
+	        Promise.all([loadImg('http://i4.buimg.com/567571/dflef0720bea6832.png'), loadImg('http://i4.buimg.com/567751/2b07ee25b08930ba.png'), loadImg('http://i2.buimg.com/567751/5eb8190d6b2a1c9c.png')]).then(showImgs).catch(function (err) {
+	            console.log('promiseAllCatch', err);
+	        });
+	    }
 
-	    console.log('继承传递参数', new _Child('hello'));
-	}
+	    {
+	        //有一个图片加载完就添加到页面
+	        var _loadImg = function _loadImg(src) {
+	            return new Promise(function (resolve, reject) {
+	                var img = document.createElement('img');
+	                img.src = src;
+	                img.onload = function () {
+	                    resolve(img);
+	                };
+	                img.onerror = function (err) {
+	                    reject(err);
+	                };
+	            });
+	        };
 
-	{
-	    // getter,setter
-	    var _Parent5 = function () {
-	        function _Parent5() {
-	            var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'mukewang';
+	        var _showImgs = function _showImgs(img) {
+	            var p = document.createElement('p');
+	            p.appendChild(img);
+	            document.body.appendChild(p);
+	        };
+	        /*Promise.race---promise多个集合中有一个出现了改变就进行下一步*/
 
-	            _classCallCheck(this, _Parent5);
 
-	            this.name = name;
-	        }
-
-	        _createClass(_Parent5, [{
-	            key: 'longName',
-	            get: function get() {
-	                return 'mk' + this.name;
-	            },
-	            set: function set(value) {
-	                this.name = value;
-	            }
-	        }]);
-
-	        return _Parent5;
-	    }();
-
-	    var v = new _Parent5();
-	    console.log('getter', v.longName);
-	    v.longName = 'hello';
-	    console.log('setter', v.longName);
-	}
-
-	{
-	    // 静态方法
-	    var _Parent6 = function () {
-	        function _Parent6() {
-	            var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'mukewang';
-
-	            _classCallCheck(this, _Parent6);
-
-	            this.name = name;
-	        }
-
-	        _createClass(_Parent6, null, [{
-	            key: 'tell',
-	            value: function tell() {
-	                console.log('tell');
-	            }
-	        }]);
-
-	        return _Parent6;
-	    }();
-
-	    _Parent6.tell();
-	}
-
-	{
-	    // 静态属性
-	    var _Parent7 = function () {
-	        function _Parent7() {
-	            var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'mukewang';
-
-	            _classCallCheck(this, _Parent7);
-
-	            this.name = name;
-	        }
-
-	        _createClass(_Parent7, null, [{
-	            key: 'tell',
-	            value: function tell() {
-	                console.log('tell');
-	            }
-	        }]);
-
-	        return _Parent7;
-	    }();
-
-	    _Parent7.type = 'test';
-
-	    console.log('静态属性', _Parent7.type);
+	        Promise.race([_loadImg('http://i4.buimg.com/567571/dflef0720bea6832.png'), _loadImg('http://i4.buimg.com/567751/2b07ee25b08930ba.png'), _loadImg('http://i2.buimg.com/567751/5eb8190d6b2a1c9c.png')]).then(_showImgs);
+	    }
 	}
 
 /***/ })
