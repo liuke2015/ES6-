@@ -8703,135 +8703,96 @@
 
 	'use strict';
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 	/**
 	 * Created by dell on 2017/8/4.
 	 */
-	/*promise*/
+	/*iterator 和 for ... of循环*/
 	{
-	    // 基本定义
-	    var ajax = function ajax(callback) {
-	        console.log('执行');
-	        setTimeout(function () {
-	            callback && callback.call();
-	        }, 1000);
-	    };
-	    ajax(function () {
-	        console.log('timeout1');
-	    });
+	    var arr = ['hello', 'world'];
+	    var map = arr[Symbol.iterator]();
+	    console.log(map.next());
+	    console.log(map.next());
+	    console.log(map.next());
 	}
 
 	{
-	    var _ajax = function _ajax() {
-	        console.log('执行2');
-	        return new Promise(function (resolve, reject) {
-	            setTimeout(function () {
-	                resolve();
-	            }, 1000);
-	        });
-	    };
-
-	    _ajax().then(function () {
-	        console.log('promise', 'timeout2');
-	    });
-	}
-
-	{
-	    var _ajax2 = function _ajax2() {
-	        console.log('执行3');
-	        return new Promise(function (resolve, reject) {
-	            setTimeout(function () {
-	                resolve();
-	            }, 1000);
-	        });
-	    };
-
-	    _ajax2().then(function () {
-	        return new Promise(function (resolve, reject) {
-	            setTimeout(function () {
-	                resolve();
-	            }, 2000);
-	        });
-	    }).then(function () {
-	        console.log('timeout3');
-	    });
-	}
-
-	{
-	    var _ajax3 = function _ajax3(num) {
-	        console.log('执行4');
-	        return new Promise(function (resolve, reject) {
-	            if (num > 5) {
-	                resolve();
-	            } else {
-	                throw new Error('出错了');
+	    var obj = _defineProperty({
+	        start: [1, 3, 2],
+	        end: [7, 9, 8]
+	    }, Symbol.iterator, function () {
+	        var self = this;
+	        var index = 0;
+	        var arr = self.start.concat(self.end);
+	        var len = arr.length;
+	        return {
+	            next: function next() {
+	                if (index < len) {
+	                    return {
+	                        value: arr[index++],
+	                        done: false
+	                    };
+	                } else {
+	                    return {
+	                        value: arr[index++],
+	                        done: true
+	                    };
+	                }
 	            }
-	        });
-	    };
-
-	    _ajax3(6).then(function () {
-	        console.log('log', 6);
-	    }).catch(function (err) {
-	        console.log('catch', err);
-	    });
-
-	    _ajax3(3).then(function () {
-	        console.log('log', 3);
-	    }).catch(function (err) {
-	        console.log('catch', err);
-	    });
-
-	    {
-	        //所有图片加载完再添加到页面
-	        var loadImg = function loadImg(src) {
-	            return new Promise(function (resolve, reject) {
-	                var img = document.createElement('img');
-	                img.src = src;
-	                img.onload = function () {
-	                    resolve(img);
-	                };
-	                img.onerror = function (err) {
-	                    reject(err);
-	                };
-	            });
 	        };
+	    });
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
 
-	        var showImgs = function showImgs(imgs) {
-	            imgs.forEach(function (img) {
-	                document.body.appendChild(img);
-	            });
-	        };
-	        /*Promise.all---promise集合全部执行完毕，才进行下一步*/
+	    try {
+	        for (var _iterator = obj[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	            var key = _step.value;
 
-
-	        Promise.all([loadImg('http://i4.buimg.com/567571/dflef0720bea6832.png'), loadImg('http://i4.buimg.com/567751/2b07ee25b08930ba.png'), loadImg('http://i2.buimg.com/567751/5eb8190d6b2a1c9c.png')]).then(showImgs).catch(function (err) {
-	            console.log('promiseAllCatch', err);
-	        });
+	            console.log(key);
+	        }
+	    } catch (err) {
+	        _didIteratorError = true;
+	        _iteratorError = err;
+	    } finally {
+	        try {
+	            if (!_iteratorNormalCompletion && _iterator.return) {
+	                _iterator.return();
+	            }
+	        } finally {
+	            if (_didIteratorError) {
+	                throw _iteratorError;
+	            }
+	        }
 	    }
+	}
 
-	    {
-	        //有一个图片加载完就添加到页面
-	        var _loadImg = function _loadImg(src) {
-	            return new Promise(function (resolve, reject) {
-	                var img = document.createElement('img');
-	                img.src = src;
-	                img.onload = function () {
-	                    resolve(img);
-	                };
-	                img.onerror = function (err) {
-	                    reject(err);
-	                };
-	            });
-	        };
+	{
+	    var _arr = ['hello', 'world'];
+	    var _iteratorNormalCompletion2 = true;
+	    var _didIteratorError2 = false;
+	    var _iteratorError2 = undefined;
 
-	        var _showImgs = function _showImgs(img) {
-	            var p = document.createElement('p');
-	            p.appendChild(img);
-	            document.body.appendChild(p);
-	        };
-	        /*Promise.race---promise多个集合中有一个出现了改变就进行下一步*/
+	    try {
+	        for (var _iterator2 = _arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	            var value = _step2.value;
 
-
-	        Promise.race([_loadImg('http://i4.buimg.com/567571/dflef0720bea6832.png'), _loadImg('http://i4.buimg.com/567751/2b07ee25b08930ba.png'), _loadImg('http://i2.buimg.com/567751/5eb8190d6b2a1c9c.png')]).then(_showImgs);
+	            console.log('value', value);
+	        }
+	    } catch (err) {
+	        _didIteratorError2 = true;
+	        _iteratorError2 = err;
+	    } finally {
+	        try {
+	            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                _iterator2.return();
+	            }
+	        } finally {
+	            if (_didIteratorError2) {
+	                throw _iteratorError2;
+	            }
+	        }
 	    }
 	}
 
