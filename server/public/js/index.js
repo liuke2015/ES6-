@@ -8699,419 +8699,160 @@
 
 /***/ }),
 /* 299 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
-	/**
-	 * Created by dell on 2017/8/4.
-	 */
-	{
-	    // genertaor基本定义
-	    var tell = regeneratorRuntime.mark(function tell() {
-	        return regeneratorRuntime.wrap(function tell$(_context) {
-	            while (1) {
-	                switch (_context.prev = _context.next) {
-	                    case 0:
-	                        _context.next = 2;
-	                        return 'a';
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	                    case 2:
-	                        _context.next = 4;
-	                        return 'b';
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	                    case 4:
-	                        return _context.abrupt('return', 'c');
-
-	                    case 5:
-	                    case 'end':
-	                        return _context.stop();
-	                }
-	            }
-	        }, tell, this);
+	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+	    var desc = {};
+	    Object['ke' + 'ys'](descriptor).forEach(function (key) {
+	        desc[key] = descriptor[key];
 	    });
+	    desc.enumerable = !!desc.enumerable;
+	    desc.configurable = !!desc.configurable;
 
-	    var k = tell();
-
-	    console.log(k.next());
-	    console.log(k.next());
-	    console.log(k.next());
-	    console.log(k.next());
-	}
-
-	{
-	    var obj = {};
-	    obj[Symbol.iterator] = regeneratorRuntime.mark(function _callee() {
-	        return regeneratorRuntime.wrap(function _callee$(_context2) {
-	            while (1) {
-	                switch (_context2.prev = _context2.next) {
-	                    case 0:
-	                        _context2.next = 2;
-	                        return 1;
-
-	                    case 2:
-	                        _context2.next = 4;
-	                        return 2;
-
-	                    case 4:
-	                        _context2.next = 6;
-	                        return 3;
-
-	                    case 6:
-	                    case 'end':
-	                        return _context2.stop();
-	                }
-	            }
-	        }, _callee, this);
-	    });
-
-	    var _iteratorNormalCompletion = true;
-	    var _didIteratorError = false;
-	    var _iteratorError = undefined;
-
-	    try {
-	        for (var _iterator = obj[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	            var key = _step.value;
-
-	            console.log('value', key);
-	        }
-	    } catch (err) {
-	        _didIteratorError = true;
-	        _iteratorError = err;
-	    } finally {
-	        try {
-	            if (!_iteratorNormalCompletion && _iterator.return) {
-	                _iterator.return();
-	            }
-	        } finally {
-	            if (_didIteratorError) {
-	                throw _iteratorError;
-	            }
-	        }
+	    if ('value' in desc || desc.initializer) {
+	        desc.writable = true;
 	    }
+
+	    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+	        return decorator(target, property, desc) || desc;
+	    }, desc);
+
+	    if (context && desc.initializer !== void 0) {
+	        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+	        desc.initializer = undefined;
+	    }
+
+	    if (desc.initializer === void 0) {
+	        Object['define' + 'Property'](target, property, desc);
+	        desc = null;
+	    }
+
+	    return desc;
 	}
 
+	/**
+	 * Created by dell on 2017/8/5.
+	 */
+	/*Decorator 修饰器
+	* 1、修饰器是一个函数
+	* 2、修改行为（或者说扩展类的功能）
+	* 3、修饰器修改类的行为（只在类中管用，别的地方不管用）
+	*
+	* 需要装一个包:
+	 npm install babel-plugin-transform-decorators-legacy --save-dev
+
+	 在.babelrc文件中增加一个插件
+	 "plugins":["transform-decorators-legacy"]
+	 * */
+
+	/*修饰器函数
+	* parameters:
+	*  target:修改的类本身
+	*  name:
+	*  descriptor:属性的描述对象
+	*
+	* */
+
 	{
-	    var state = regeneratorRuntime.mark(function state() {
-	        return regeneratorRuntime.wrap(function state$(_context3) {
-	            while (1) {
-	                switch (_context3.prev = _context3.next) {
-	                    case 0:
-	                        if (false) {
-	                            _context3.next = 9;
-	                            break;
-	                        }
+	    var _desc, _value, _class;
 
-	                        _context3.next = 3;
-	                        return 'A';
-
-	                    case 3:
-	                        _context3.next = 5;
-	                        return 'B';
-
-	                    case 5:
-	                        _context3.next = 7;
-	                        return 'C';
-
-	                    case 7:
-	                        _context3.next = 0;
-	                        break;
-
-	                    case 9:
-	                    case 'end':
-	                        return _context3.stop();
-	                }
-	            }
-	        }, state, this);
-	    });
-	    var status = state();
-	    console.log(status.next());
-	    console.log(status.next());
-	    console.log(status.next());
-	    console.log(status.next());
-	    console.log(status.next());
-	}
-
-	// {
-	//   let state=async function (){
-	//     while(1){
-	//       await 'A';
-	//       await 'B';
-	//       await 'C';
-	//     }
-	//   }
-	//   let status=state();
-	//   console.log(status.next());
-	//   console.log(status.next());
-	//   console.log(status.next());
-	//   console.log(status.next());
-	//   console.log(status.next());
-	// }
-
-
-	/*抽奖*/
-	{
-	    var draw = function draw(count) {
-	        console.info('1-\u5269\u4F59' + count + '\u6B21');
+	    var readonly = function readonly(target, name, descriptor) {
+	        descriptor.writable = false;
+	        return descriptor;
 	    };
 
-	    var residue = regeneratorRuntime.mark(function residue(count) {
-	        return regeneratorRuntime.wrap(function residue$(_context4) {
-	            while (1) {
-	                switch (_context4.prev = _context4.next) {
-	                    case 0:
-	                        if (!(count > 0)) {
-	                            _context4.next = 6;
-	                            break;
-	                        }
+	    var Test = (_class = function () {
+	        function Test() {
+	            _classCallCheck(this, Test);
+	        }
 
-	                        count--;
-	                        _context4.next = 4;
-	                        return draw(count);
-
-	                    case 4:
-	                        _context4.next = 0;
-	                        break;
-
-	                    case 6:
-	                    case 'end':
-	                        return _context4.stop();
-	                }
+	        _createClass(Test, [{
+	            key: 'time',
+	            value: function time() {
+	                return '2017-03-11';
 	            }
-	        }, residue, this);
-	    });
-	    var star = residue(5);
-	    var btn = document.createElement('button');
-	    btn.id = 'start';
-	    btn.textContent = "抽奖";
-	    document.body.appendChild(btn);
-	    document.getElementById('start').addEventListener('click', function () {
-	        star.next();
-	    });
-	}
-	/*抽奖练习1*/
-	{
-	    var _draw = function _draw(count) {
-	        console.info('2-\u5269\u4F59' + count + '\u6B21');
-	    };
-	    var _residue = regeneratorRuntime.mark(function _residue(count) {
-	        return regeneratorRuntime.wrap(function _residue$(_context5) {
-	            while (1) {
-	                switch (_context5.prev = _context5.next) {
-	                    case 0:
-	                        if (!(count > 0)) {
-	                            _context5.next = 6;
-	                            break;
-	                        }
+	        }]);
 
-	                        count--;
-	                        _context5.next = 4;
-	                        return _draw(count);
+	        return Test;
+	    }(), (_applyDecoratedDescriptor(_class.prototype, 'time', [readonly], Object.getOwnPropertyDescriptor(_class.prototype, 'time'), _class.prototype)), _class);
 
-	                    case 4:
-	                        _context5.next = 0;
-	                        break;
 
-	                    case 6:
-	                    case 'end':
-	                        return _context5.stop();
-	                }
-	            }
-	        }, _residue, this);
-	    });
-	    var _star = _residue(5);
-	    var _btn = document.createElement('button');
-	    _btn.id = 'start2';
-	    _btn.textContent = "抽奖2";
-	    document.body.appendChild(_btn);
-	    document.getElementById('start2').addEventListener('click', function () {
-	        _star.next();
-	    });
-	}
-	/*抽奖练习2*/
-	{
-	    var _draw2 = function _draw2(count) {
-	        console.log('\u8FD8\u5269' + count + '\u6B21');
-	    };
+	    var test = new Test();
 
-	    var _residue2 = regeneratorRuntime.mark(function _residue2(count) {
-	        return regeneratorRuntime.wrap(function _residue2$(_context6) {
-	            while (1) {
-	                switch (_context6.prev = _context6.next) {
-	                    case 0:
-	                        if (!(count > 0)) {
-	                            _context6.next = 6;
-	                            break;
-	                        }
+	    // test.time=function(){
+	    //   console.log('reset time');
+	    // };
 
-	                        count--;
-	                        _context6.next = 4;
-	                        return _draw2(count);
-
-	                    case 4:
-	                        _context6.next = 0;
-	                        break;
-
-	                    case 6:
-	                    case 'end':
-	                        return _context6.stop();
-	                }
-	            }
-	        }, _residue2, this);
-	    });
-
-	    var _star2 = _residue2(5);
-	    var _btn2 = document.createElement('button');
-	    _btn2.id = 'start3';
-	    _btn2.textContent = "抽奖3";
-	    document.body.appendChild(_btn2);
-	    document.getElementById('start3').addEventListener('click', function () {
-	        _star2.next();
-	    });
-	}
-	{
-	    /* 长轮询*/
-	    var ajax = regeneratorRuntime.mark(function ajax() {
-	        return regeneratorRuntime.wrap(function ajax$(_context7) {
-	            while (1) {
-	                switch (_context7.prev = _context7.next) {
-	                    case 0:
-	                        _context7.next = 2;
-	                        return new Promise(function (resolve, reject) {
-	                            setTimeout(function () {
-	                                resolve({ code: 0 });
-	                            }, 200);
-	                        });
-
-	                    case 2:
-	                    case 'end':
-	                        return _context7.stop();
-	                }
-	            }
-	        }, ajax, this);
-	    });
-
-	    var pull = function pull() {
-	        var generator = ajax();
-	        var step = ajax().next();
-	        step.value.then(function (d) {
-	            if (d.code != 0) {
-	                setTimeout(function () {
-	                    console.log('wait');
-	                    pull();
-	                }, 1000);
-	            } else {
-	                console.log(d);
-	            }
-	        });
-	    };
-	    // pull();
+	    console.log(test.time());
 	}
 
-	/* 长轮询练习1*/
 	{
-	    var _ajax = regeneratorRuntime.mark(function _ajax() {
-	        return regeneratorRuntime.wrap(function _ajax$(_context8) {
-	            while (1) {
-	                switch (_context8.prev = _context8.next) {
-	                    case 0:
-	                        _context8.next = 2;
-	                        return new Promise(function (resolve, reject) {
-	                            setTimeout(function () {
-	                                resolve({ code: 0 });
-	                            }, 200);
-	                        });
+	    var _class2;
 
-	                    case 2:
-	                    case 'end':
-	                        return _context8.stop();
-	                }
-	            }
-	        }, _ajax, this);
-	    });
-
-	    var _pull = function _pull() {
-	        var step = _ajax().next();
-	        step.value.then(function (d) {
-	            if (d.code != 0) {
-	                setTimeout(function () {
-	                    console.info('1:waite');
-	                    _pull();
-	                }, 1000);
-	            } else {
-	                console.info(d);
-	            }
-	        });
+	    var typename = function typename(target, name, descriptor) {
+	        //给类增加静态属性
+	        target.myname = 'hello';
 	    };
-	    // pull();
+
+	    var _Test = typename(_class2 = function _Test() {
+	        _classCallCheck(this, _Test);
+	    }) || _class2;
+
+	    console.log('类修饰符', _Test.myname);
+	    // 第三方库修饰器的js库：core-decorators; npm install core-decorators
 	}
-	/* 长轮询练习1*/
-	{
-	    var _ajax2 = regeneratorRuntime.mark(function _ajax2() {
-	        return regeneratorRuntime.wrap(function _ajax2$(_context9) {
-	            while (1) {
-	                switch (_context9.prev = _context9.next) {
-	                    case 0:
-	                        _context9.next = 2;
-	                        return new Promise(function (resolve, reject) {
-	                            setTimeout(function () {
-	                                resolve({ code: 0 });
-	                            }, 1000);
-	                        });
 
-	                    case 2:
-	                    case 'end':
-	                        return _context9.stop();
-	                }
-	            }
-	        }, _ajax2, this);
-	    });
-	    var _pull2 = function _pull2() {
-	        var step = _ajax2().next();
-	        step.value.then(function (d) {
-	            if (d.code != 0) {
-	                console.log('2:waite');
-	                _pull2();
-	            } else {
-	                console.info(d);
-	            }
-	        });
-	    };
-	    //pull()
-	}
-	/* 长轮询练习2*/
+	//日志系统
 	{
-	    var _ajax3 = regeneratorRuntime.mark(function _ajax3() {
-	        return regeneratorRuntime.wrap(function _ajax3$(_context10) {
-	            while (1) {
-	                switch (_context10.prev = _context10.next) {
-	                    case 0:
-	                        _context10.next = 2;
-	                        return new Promise(function (resolve, reject) {
-	                            setTimeout(function () {
-	                                resolve({ code: 0 });
-	                            }, 1000);
-	                        });
+	    var _dec, _dec2, _desc2, _value2, _class3;
 
-	                    case 2:
-	                    case 'end':
-	                        return _context10.stop();
+	    var log = function log(type) {
+	        return function (target, name, descriptor) {
+	            var src_method = descriptor.value;
+	            descriptor.value = function () {
+	                for (var _len = arguments.length, arg = Array(_len), _key = 0; _key < _len; _key++) {
+	                    arg[_key] = arguments[_key];
 	                }
-	            }
-	        }, _ajax3, this);
-	    });
-	    var _pull3 = function _pull3() {
-	        var step = _ajax3().next();
-	        step.value.then(function (d) {
-	            if (d.code != 0) {
-	                console.log('3:waite');
-	                _pull3();
-	            } else {
-	                console.log(d);
-	            }
-	        });
+
+	                src_method.apply(target, arg);
+	                /*模拟埋点
+	                * new Image().src=一个接口
+	                * */
+	                console.info('log ' + type);
+	            };
+	        };
 	    };
-	    _pull3();
+
+	    var AD = (_dec = log('show'), _dec2 = log('click'), (_class3 = function () {
+	        function AD() {
+	            _classCallCheck(this, AD);
+	        }
+
+	        _createClass(AD, [{
+	            key: 'show',
+	            value: function show() {
+	                console.info('ad is show');
+	            }
+	        }, {
+	            key: 'click',
+	            value: function click() {
+	                console.info('ad is click');
+	            }
+	        }]);
+
+	        return AD;
+	    }(), (_applyDecoratedDescriptor(_class3.prototype, 'show', [_dec], Object.getOwnPropertyDescriptor(_class3.prototype, 'show'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'click', [_dec2], Object.getOwnPropertyDescriptor(_class3.prototype, 'click'), _class3.prototype)), _class3));
+
+
+	    var ad = new AD();
+	    ad.show();
+	    ad.click();
 	}
 
 /***/ })
