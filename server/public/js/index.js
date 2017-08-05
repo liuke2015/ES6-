@@ -8699,49 +8699,72 @@
 
 /***/ }),
 /* 299 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	/**
 	 * Created by dell on 2017/8/4.
 	 */
-	/*iterator 和 for ... of循环*/
 	{
-	    var arr = ['hello', 'world'];
-	    var map = arr[Symbol.iterator]();
-	    console.log(map.next());
-	    console.log(map.next());
-	    console.log(map.next());
+	    // genertaor基本定义
+	    var tell = regeneratorRuntime.mark(function tell() {
+	        return regeneratorRuntime.wrap(function tell$(_context) {
+	            while (1) {
+	                switch (_context.prev = _context.next) {
+	                    case 0:
+	                        _context.next = 2;
+	                        return 'a';
+
+	                    case 2:
+	                        _context.next = 4;
+	                        return 'b';
+
+	                    case 4:
+	                        return _context.abrupt('return', 'c');
+
+	                    case 5:
+	                    case 'end':
+	                        return _context.stop();
+	                }
+	            }
+	        }, tell, this);
+	    });
+
+	    var k = tell();
+
+	    console.log(k.next());
+	    console.log(k.next());
+	    console.log(k.next());
+	    console.log(k.next());
 	}
 
 	{
-	    var obj = _defineProperty({
-	        start: [1, 3, 2],
-	        end: [7, 9, 8]
-	    }, Symbol.iterator, function () {
-	        var self = this;
-	        var index = 0;
-	        var arr = self.start.concat(self.end);
-	        var len = arr.length;
-	        return {
-	            next: function next() {
-	                if (index < len) {
-	                    return {
-	                        value: arr[index++],
-	                        done: false
-	                    };
-	                } else {
-	                    return {
-	                        value: arr[index++],
-	                        done: true
-	                    };
+	    var obj = {};
+	    obj[Symbol.iterator] = regeneratorRuntime.mark(function _callee() {
+	        return regeneratorRuntime.wrap(function _callee$(_context2) {
+	            while (1) {
+	                switch (_context2.prev = _context2.next) {
+	                    case 0:
+	                        _context2.next = 2;
+	                        return 1;
+
+	                    case 2:
+	                        _context2.next = 4;
+	                        return 2;
+
+	                    case 4:
+	                        _context2.next = 6;
+	                        return 3;
+
+	                    case 6:
+	                    case 'end':
+	                        return _context2.stop();
 	                }
 	            }
-	        };
+	        }, _callee, this);
 	    });
+
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
 	    var _iteratorError = undefined;
@@ -8750,7 +8773,7 @@
 	        for (var _iterator = obj[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	            var key = _step.value;
 
-	            console.log(key);
+	            console.log('value', key);
 	        }
 	    } catch (err) {
 	        _didIteratorError = true;
@@ -8769,31 +8792,326 @@
 	}
 
 	{
-	    var _arr = ['hello', 'world'];
-	    var _iteratorNormalCompletion2 = true;
-	    var _didIteratorError2 = false;
-	    var _iteratorError2 = undefined;
+	    var state = regeneratorRuntime.mark(function state() {
+	        return regeneratorRuntime.wrap(function state$(_context3) {
+	            while (1) {
+	                switch (_context3.prev = _context3.next) {
+	                    case 0:
+	                        if (false) {
+	                            _context3.next = 9;
+	                            break;
+	                        }
 
-	    try {
-	        for (var _iterator2 = _arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	            var value = _step2.value;
+	                        _context3.next = 3;
+	                        return 'A';
 
-	            console.log('value', value);
-	        }
-	    } catch (err) {
-	        _didIteratorError2 = true;
-	        _iteratorError2 = err;
-	    } finally {
-	        try {
-	            if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                _iterator2.return();
+	                    case 3:
+	                        _context3.next = 5;
+	                        return 'B';
+
+	                    case 5:
+	                        _context3.next = 7;
+	                        return 'C';
+
+	                    case 7:
+	                        _context3.next = 0;
+	                        break;
+
+	                    case 9:
+	                    case 'end':
+	                        return _context3.stop();
+	                }
 	            }
-	        } finally {
-	            if (_didIteratorError2) {
-	                throw _iteratorError2;
+	        }, state, this);
+	    });
+	    var status = state();
+	    console.log(status.next());
+	    console.log(status.next());
+	    console.log(status.next());
+	    console.log(status.next());
+	    console.log(status.next());
+	}
+
+	// {
+	//   let state=async function (){
+	//     while(1){
+	//       await 'A';
+	//       await 'B';
+	//       await 'C';
+	//     }
+	//   }
+	//   let status=state();
+	//   console.log(status.next());
+	//   console.log(status.next());
+	//   console.log(status.next());
+	//   console.log(status.next());
+	//   console.log(status.next());
+	// }
+
+
+	/*抽奖*/
+	{
+	    var draw = function draw(count) {
+	        console.info('1-\u5269\u4F59' + count + '\u6B21');
+	    };
+
+	    var residue = regeneratorRuntime.mark(function residue(count) {
+	        return regeneratorRuntime.wrap(function residue$(_context4) {
+	            while (1) {
+	                switch (_context4.prev = _context4.next) {
+	                    case 0:
+	                        if (!(count > 0)) {
+	                            _context4.next = 6;
+	                            break;
+	                        }
+
+	                        count--;
+	                        _context4.next = 4;
+	                        return draw(count);
+
+	                    case 4:
+	                        _context4.next = 0;
+	                        break;
+
+	                    case 6:
+	                    case 'end':
+	                        return _context4.stop();
+	                }
 	            }
-	        }
-	    }
+	        }, residue, this);
+	    });
+	    var star = residue(5);
+	    var btn = document.createElement('button');
+	    btn.id = 'start';
+	    btn.textContent = "抽奖";
+	    document.body.appendChild(btn);
+	    document.getElementById('start').addEventListener('click', function () {
+	        star.next();
+	    });
+	}
+	/*抽奖练习1*/
+	{
+	    var _draw = function _draw(count) {
+	        console.info('2-\u5269\u4F59' + count + '\u6B21');
+	    };
+	    var _residue = regeneratorRuntime.mark(function _residue(count) {
+	        return regeneratorRuntime.wrap(function _residue$(_context5) {
+	            while (1) {
+	                switch (_context5.prev = _context5.next) {
+	                    case 0:
+	                        if (!(count > 0)) {
+	                            _context5.next = 6;
+	                            break;
+	                        }
+
+	                        count--;
+	                        _context5.next = 4;
+	                        return _draw(count);
+
+	                    case 4:
+	                        _context5.next = 0;
+	                        break;
+
+	                    case 6:
+	                    case 'end':
+	                        return _context5.stop();
+	                }
+	            }
+	        }, _residue, this);
+	    });
+	    var _star = _residue(5);
+	    var _btn = document.createElement('button');
+	    _btn.id = 'start2';
+	    _btn.textContent = "抽奖2";
+	    document.body.appendChild(_btn);
+	    document.getElementById('start2').addEventListener('click', function () {
+	        _star.next();
+	    });
+	}
+	/*抽奖练习2*/
+	{
+	    var _draw2 = function _draw2(count) {
+	        console.log('\u8FD8\u5269' + count + '\u6B21');
+	    };
+
+	    var _residue2 = regeneratorRuntime.mark(function _residue2(count) {
+	        return regeneratorRuntime.wrap(function _residue2$(_context6) {
+	            while (1) {
+	                switch (_context6.prev = _context6.next) {
+	                    case 0:
+	                        if (!(count > 0)) {
+	                            _context6.next = 6;
+	                            break;
+	                        }
+
+	                        count--;
+	                        _context6.next = 4;
+	                        return _draw2(count);
+
+	                    case 4:
+	                        _context6.next = 0;
+	                        break;
+
+	                    case 6:
+	                    case 'end':
+	                        return _context6.stop();
+	                }
+	            }
+	        }, _residue2, this);
+	    });
+
+	    var _star2 = _residue2(5);
+	    var _btn2 = document.createElement('button');
+	    _btn2.id = 'start3';
+	    _btn2.textContent = "抽奖3";
+	    document.body.appendChild(_btn2);
+	    document.getElementById('start3').addEventListener('click', function () {
+	        _star2.next();
+	    });
+	}
+	{
+	    /* 长轮询*/
+	    var ajax = regeneratorRuntime.mark(function ajax() {
+	        return regeneratorRuntime.wrap(function ajax$(_context7) {
+	            while (1) {
+	                switch (_context7.prev = _context7.next) {
+	                    case 0:
+	                        _context7.next = 2;
+	                        return new Promise(function (resolve, reject) {
+	                            setTimeout(function () {
+	                                resolve({ code: 0 });
+	                            }, 200);
+	                        });
+
+	                    case 2:
+	                    case 'end':
+	                        return _context7.stop();
+	                }
+	            }
+	        }, ajax, this);
+	    });
+
+	    var pull = function pull() {
+	        var generator = ajax();
+	        var step = ajax().next();
+	        step.value.then(function (d) {
+	            if (d.code != 0) {
+	                setTimeout(function () {
+	                    console.log('wait');
+	                    pull();
+	                }, 1000);
+	            } else {
+	                console.log(d);
+	            }
+	        });
+	    };
+	    // pull();
+	}
+
+	/* 长轮询练习1*/
+	{
+	    var _ajax = regeneratorRuntime.mark(function _ajax() {
+	        return regeneratorRuntime.wrap(function _ajax$(_context8) {
+	            while (1) {
+	                switch (_context8.prev = _context8.next) {
+	                    case 0:
+	                        _context8.next = 2;
+	                        return new Promise(function (resolve, reject) {
+	                            setTimeout(function () {
+	                                resolve({ code: 0 });
+	                            }, 200);
+	                        });
+
+	                    case 2:
+	                    case 'end':
+	                        return _context8.stop();
+	                }
+	            }
+	        }, _ajax, this);
+	    });
+
+	    var _pull = function _pull() {
+	        var step = _ajax().next();
+	        step.value.then(function (d) {
+	            if (d.code != 0) {
+	                setTimeout(function () {
+	                    console.info('1:waite');
+	                    _pull();
+	                }, 1000);
+	            } else {
+	                console.info(d);
+	            }
+	        });
+	    };
+	    // pull();
+	}
+	/* 长轮询练习1*/
+	{
+	    var _ajax2 = regeneratorRuntime.mark(function _ajax2() {
+	        return regeneratorRuntime.wrap(function _ajax2$(_context9) {
+	            while (1) {
+	                switch (_context9.prev = _context9.next) {
+	                    case 0:
+	                        _context9.next = 2;
+	                        return new Promise(function (resolve, reject) {
+	                            setTimeout(function () {
+	                                resolve({ code: 0 });
+	                            }, 1000);
+	                        });
+
+	                    case 2:
+	                    case 'end':
+	                        return _context9.stop();
+	                }
+	            }
+	        }, _ajax2, this);
+	    });
+	    var _pull2 = function _pull2() {
+	        var step = _ajax2().next();
+	        step.value.then(function (d) {
+	            if (d.code != 0) {
+	                console.log('2:waite');
+	                _pull2();
+	            } else {
+	                console.info(d);
+	            }
+	        });
+	    };
+	    //pull()
+	}
+	/* 长轮询练习2*/
+	{
+	    var _ajax3 = regeneratorRuntime.mark(function _ajax3() {
+	        return regeneratorRuntime.wrap(function _ajax3$(_context10) {
+	            while (1) {
+	                switch (_context10.prev = _context10.next) {
+	                    case 0:
+	                        _context10.next = 2;
+	                        return new Promise(function (resolve, reject) {
+	                            setTimeout(function () {
+	                                resolve({ code: 0 });
+	                            }, 1000);
+	                        });
+
+	                    case 2:
+	                    case 'end':
+	                        return _context10.stop();
+	                }
+	            }
+	        }, _ajax3, this);
+	    });
+	    var _pull3 = function _pull3() {
+	        var step = _ajax3().next();
+	        step.value.then(function (d) {
+	            if (d.code != 0) {
+	                console.log('3:waite');
+	                _pull3();
+	            } else {
+	                console.log(d);
+	            }
+	        });
+	    };
+	    _pull3();
 	}
 
 /***/ })
