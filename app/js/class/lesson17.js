@@ -85,6 +85,35 @@
         }
     }
 
+   /* let ad=new AD();
+    ad.show();
+    ad.click();*/
+}
+
+//日志系统练习
+{
+    let log=function(type){
+        return function(target,name,descriptor){
+            var src_method=descriptor.value;
+            descriptor.value=()=>{
+                src_method.apply(target);
+                console.log(`log is ${type}`);
+            }
+        }
+    }
+
+    class AD{
+        @log('show')
+        show(){
+            console.log("ad is show");
+        }
+
+        @log('click')
+        click(){
+            console.log("ad is click");
+        }
+    }
+
     let ad=new AD();
     ad.show();
     ad.click();
