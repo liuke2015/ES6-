@@ -2,6 +2,7 @@
  * Created by dell on 2017/8/6.
  */
     /*
+    获取倒计时时间
     * */
 class Timer{
     countdown(end,update,handle){
@@ -46,3 +47,4 @@ class Timer{
         }
     }
 }
+export default Timer
